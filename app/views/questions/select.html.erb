@@ -1,0 +1,27 @@
+<div class="question_select_container uk-container">
+  <h2>問題を選ぶ</h2>
+  <%= form_with url:practice_questions_path, method: :get, local: true do |f| %>
+    <ul class='uk-list uk-list-divider checkbox_container'>
+      <li>
+        <%= f.check_box :random, class: 'uk-checkbox' %>
+        <%= f.label :random, "ランダム" %>
+      </li>
+      <li>
+        <%= f.check_box :recent_mistake, class: 'uk-checkbox' %>
+        <%= f.label :recent_mistake, "最近間違った問題" %>
+      </li>
+      <% @tags.each do |tag| %>
+        <li>
+          <%= check_box_tag('question[tag_ids][]', value = tag.id, checked = false, class: 'uk-checkbox') %>
+          <%= f.label :tag_id, tag.name %>
+        </li>
+      <% end %>
+      
+    </ul>
+    <div>
+      <%= f.select :number, @numbers , {selected: 20}, class: 'uk-select uk-form-width-small uk-margin-bottom' %>
+      問出題する
+    </div>
+    <%= f.submit 'GO', id: 'select_submit', class: 'uk-button uk-button-primary'%>
+  <% end %>
+</div>

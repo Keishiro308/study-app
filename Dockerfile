@@ -1,4 +1,4 @@
-FROM ruby:2.7.1
+FROM ruby:2.7.0
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \

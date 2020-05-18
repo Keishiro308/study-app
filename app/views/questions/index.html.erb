@@ -1,0 +1,20 @@
+<div class="uk-container">
+  <h2>問題一覧</h2>
+  <%= link_to  "問題を解く", select_questions_path, class: 'uk-button uk-button-primary' %>
+  <div class="question uk-overflow-auto">
+    <table class="uk-table uk-table-middle">
+      <thead>
+          <tr>
+              <th>問題文</th>
+              <th>答え</th>
+              <th>タグ</th>
+              <th>アクション</th>
+          </tr>
+      </thead>  
+      <tbody>
+          <%= render @questions %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to  "問題を解く", select_questions_path, class: 'uk-button uk-button-primary' %>
+</div>

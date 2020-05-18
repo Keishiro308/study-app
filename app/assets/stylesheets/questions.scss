@@ -1,0 +1,58 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import './mediaquery';
+.practice_wrapper, .result_wrapper{
+  display: none;
+}
+
+.active{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
+.checkbox_container{
+  overflow: scroll;
+  max-height: 70vh;
+}
+
+.result_wrapper{
+  .icon{
+    text-align: center;
+    .fa-check-circle{
+      font-size: 60px;
+      color: #23fc26;
+      text-align: center;
+    }
+  }
+  p{
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+table{
+  thead{
+    tr{
+      th{
+        text-align: center !important;
+      }
+    }
+  }
+}
+
+
+@include sp{
+  
+}
+
+@include tab{
+
+}
+
+@include pc{
+
+}

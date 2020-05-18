@@ -1,0 +1,20 @@
+$pc: 1100px; // PC
+$sp: 480px;  // スマホ
+
+@mixin sp {
+  @media screen and (max-width: #{$sp - 1px}) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (min-width: #{$sp}) and (max-width: #{$pc - 1px}) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media screen and (min-width: #{$pc}) {
+    @content;
+  }
+}

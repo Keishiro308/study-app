@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  date: 2020-05-16
+  priority: 1
+  predicted_time: 1
+  actual_time: 1
+  review: MyText
+  completed: false
+
+two:
+  user: two
+  date: 2020-05-16
+  priority: 1
+  predicted_time: 1
+  actual_time: 1
+  review: MyText
+  completed: false

@@ -1,0 +1,54 @@
+<nav class="uk-navbar uk-navbar-container uk-box-shadow-medium" >
+  <div class="uk-navbar-left">
+    <%= link_to  "Studier", root_path, class: 'uk-navbar-item uk-logo uk-text-bold' %>
+    <ul class="uk-navbar-nav uk-visible@m">
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to  "Study", '#', class: 'uk-visible-toggle' %>
+          <div class="uk-navbar-dropdown uk-invisible-hover" uk-dropdown>
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li cless='uk-active'><%= link_to  "問題を解く", select_questions_path %></li>
+                <li><%= link_to  "問題を登録する", new_question_path %></li>
+                <li><%= link_to  "問題一覧", questions_path %></li>
+            </ul>
+          </div>
+        </li>
+        <li><%= link_to  "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to  "Schedule", '/' %></li>
+        <li><%= link_to  "History", '/' %></li>
+      <% else %>
+        <li><%= link_to  "Login", new_user_session_path %></li>
+        <li><%= link_to  "Signup", new_user_registration_path %></li>
+      <% end %>
+      
+        
+    </ul>
+  </div>
+  <div class="uk-navbar uk-hidden@m">
+      <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-reveal">
+          <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+      </a>
+  </div>
+  <div id="offcanvas-reveal" uk-offcanvas="mode: reveal; overlay: true">
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+        <% if user_signed_in? %>
+          <li class="uk-active"><%= link_to  "Home", root_path %></li>
+          <li class="uk-parent">
+              <%= link_to  "Study", questions_path %>
+              <ul class="uk-nav-sub">
+                  <li><%= link_to  "問題を解く", select_questions_path %></li>
+                  <li><%= link_to  "問題を登録する", new_question_path %></li>
+                  <li><%= link_to  "問題一覧", questions_path %></li>
+              </ul>
+          </li>
+          <li><%= link_to  "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to  "Login", new_user_session_path %></li>
+          <li><%= link_to  "Signup", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

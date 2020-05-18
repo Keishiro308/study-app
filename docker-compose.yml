@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     environment: 
       POSTGRES_PASSWORD: 'postgres'
   web:
@@ -11,7 +11,12 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/study-app
+      - bundle:/bundle
     ports:
       - "3000:3000"
     depends_on:
       - db
+volumes: 
+  bundle:
+    driver: local
+  db_data:
