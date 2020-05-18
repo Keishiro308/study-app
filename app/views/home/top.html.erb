@@ -1,5 +1,10 @@
 <div class="uk-card uk-card-large uk-card-default uk-card-body">
-  <h3 class="uk-card-title">ようこそ</h3>
-  <%= link_to  "ログイン", new_user_session_path, class: 'uk-button uk-button-primary' %>
-  <%= link_to  "新規登録", new_user_registration_path, class:'uk-button uk-button-primary' %>
+  <% if user_signed_in? %>
+    <h3 class="uk-card-title">ログインしています。</h3>
+  <% else %>
+    <h3 class="uk-card-title">ようこそ</h3>
+    <%= link_to  "ログイン", new_user_session_path, class: 'uk-button uk-button-primary' %>
+    <%= link_to  "新規登録", new_user_registration_path, class:'uk-button uk-button-primary' %>
+  <% end %>
+  
 </div>
