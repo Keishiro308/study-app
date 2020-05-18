@@ -15,8 +15,8 @@ $(document).on('turbolinks:load', function(){
     if (correctness === '覚えている') {
       correct_num++;
     }
-    $(this).parent().parent('.practice_wrapper').removeClass('active');
+    $(this).parents('.practice_wrapper').removeClass('active');
     $('.score').find('span').html(correct_num);
-    $(this).parent().parent('.practice_wrapper').next('').addClass('active');
+    $(this).parents('.practice_wrapper').next('').addClass('active');
   });
 });

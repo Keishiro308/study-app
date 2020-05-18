@@ -18,10 +18,12 @@
         <%= question.answer %>
       </div>
       <hr>
-      <%= link_to  "覚えている", study_logs_path(correctness: 1, question_id: question.id), 
-      class: 'result_btn uk-button uk-button-primary uk-margin-left uk-margin-right', remote: true, method: :post %>
-      <%= link_to  "覚えていない", study_logs_path(correctness: -1, question_id: question.id), 
-      class: 'result_btn uk-button uk-button-danger uk-margin-left uk-margin-right', remote: true, method: :post %>
+      <div>
+        <%= link_to  "覚えている", study_logs_path(correctness: 1, question_id: question.id), 
+        class: 'result_btn uk-button uk-button-primary', remote: true, method: :post %>
+        <%= link_to  "覚えていない", study_logs_path(correctness: -1, question_id: question.id), 
+        class: 'result_btn uk-button uk-button-danger', remote: true, method: :post %>
+      </div>
       
     </div>
   </div>
