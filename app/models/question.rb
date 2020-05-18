@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  has_many :question_and_tags
+  has_many :question_and_tags, dependent: :destroy
   has_many :tags, through: :question_and_tags
   has_many :study_logs, dependent: :destroy
   belongs_to :user
