@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @questions = current_user.questions.order(created_at: :desc)
+    @questions = current_user.questions.includes(:tags).order(created_at: :desc)
   end
 
   def new
@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
   def create
     tag_list = question_params[:tag_names].split(',')
     params[:question].delete(:tag_names)
+    params[:question][:user_id] = current_user.id
     @question = Question.new(question_params)
     if @question.save
       @question.save_tags(tag_list)
@@ -34,6 +35,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     tag_list = question_params[:tag_names].split(',')
     params[:question].delete(:tag_names)
+    params[:question][:user_id] = current_user.id
     if @question.update(question_params)
       @question.save_tags(tag_list)
       flash.notice = '問題を更新しました'
@@ -76,7 +78,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.user != current_user
       flash.alert = '権限がありません。'
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 end

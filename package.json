@@ -8,6 +8,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "@yaireo/tagify": "^3.9.1",
+    "chart.js": "^2.9.3",
     "fontawesome": "^5.6.3",
     "jquery": "^3.5.1",
     "turbolinks": "^5.2.0",

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
   resources :study_logs, only: [:create]
   root to: 'home#top'
+  resources :histories, only: [:index]
 end
+

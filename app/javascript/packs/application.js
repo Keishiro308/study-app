@@ -11,16 +11,17 @@ require("jquery")
 require('uikit/dist/js/uikit-core.min')
 require('uikit/dist/js/uikit-icons.min')
 require('uikit/dist/js/uikit.min')
-require('uikit/dist/css/uikit.min.css')
-require('uikit/dist/css/uikit-core.min.css')
-require('uikit/dist/css/uikit-core-rtl.min.css')
-require('uikit/dist/css/uikit-rtl.min.css')
 require('@fortawesome/fontawesome-free/js/all')
 require('@fortawesome/fontawesome-free/css/all.min.css')
+require('chart.js/dist/Chart.min')
+require('chart.js/dist/Chart.bundle.min')
+import 'uikit/dist/js/uikit.min';
 
 import './quiz';
 import './tag';
 import './question_select';
+import './chart';
+import './chart_tab'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

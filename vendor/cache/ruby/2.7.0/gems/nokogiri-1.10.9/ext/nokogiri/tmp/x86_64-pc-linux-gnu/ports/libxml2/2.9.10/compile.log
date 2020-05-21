@@ -1,0 +1,40 @@
+make  all-recursive
+make[1]: Entering directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10'
+Making all in include
+make[2]: Entering directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include'
+Making all in libxml
+make[3]: Entering directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include/libxml'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include/libxml'
+make[3]: Entering directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include'
+make[2]: Leaving directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10/include'
+Making all in .
+make[2]: Entering directory '/study-app/vendor/cache/ruby/2.7.0/gems/nokogiri-1.10.9/ext/nokogiri/tmp/x86_64-pc-linux-gnu/ports/libxml2/2.9.10/libxml2-2.9.10'
+  CC       xmllint.o
+  CC       SAX.lo
+  CC       entities.lo
+entities.c: In function 'xmlEncodeEntitiesInternal':
+entities.c:561:68: warning: unused parameter 'attr' [-Wunused-parameter]
+ xmlEncodeEntitiesInternal(xmlDocPtr doc, const xmlChar *input, int attr) {
+                                                                ~~~~^~~~
+  CC       encoding.lo
+  CC       error.lo
+  CC       parserInternals.lo
+  CC       parser.lo
+  CC       tree.lo
+  CC       hash.lo
+  CC       list.lo
+  CC       xmlIO.lo
+  CC       xmlmemory.lo
+  CC       uri.lo
+  CC       valid.lo
+  CC       xlink.lo
+  CC       HTMLparser.lo
+  CC       HTMLtree.lo
+  CC       debugXML.lo
+  CC       xpath.lo
+make[2]: *** [Makefile:1287: xpath.lo] Error 1
+make[1]: *** [Makefile:1479: all-recursive] Interrupt
+make: *** [Makefile:893: all] Interrupt
