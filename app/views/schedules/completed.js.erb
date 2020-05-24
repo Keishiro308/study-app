@@ -1,0 +1,17 @@
+
+schedule_id = ("<%= @schedule.id %>");
+
+$(`#modal-group-${schedule_id}`).remove();
+$('.uk-navbar-container').after(
+        `<div class="uk-alert-primary" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p><%= "「#{@schedule.body}」 完了しました。"%></p>
+        </div>`
+      );
+$('.uk-alert-primary').hide(3000);
+$(`.review-${schedule_id} .actual_time`).html('<%= @schedule.actual_time %>分');
+$(`.review-${schedule_id} .review_body`).html('<%= @schedule.review %>');
+$(`#tr-${schedule_id} .checkbox`)
+.html('<%= j( render partial: "schedules/completed_check", locals: {schedule: @schedule})%>');
+
+delete schedule_id;

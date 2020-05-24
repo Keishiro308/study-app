@@ -1,0 +1,38 @@
+<div class="uk-container">
+  <%= form_with model: Schedule.new, url: schedule_path, local: true, method: :patch do |f| %>
+    <%= render 'shared/error_message', resource: f.object %>
+    <%= f.date_field :date, class: 'uk-select', value: @date, disabled: true %>
+    <%= f.hidden_field :date, class: 'uk-select', value: @date %>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-small uk-table-divider">
+        <thead>
+          <tr>
+            <th>優先順位</th>
+            <th>内容</th>
+            <th>時間（予測）</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class='addable_form_tbody'>
+          <% i = 1 %>
+          <% @schedules.each do |schedule| %>
+            <tr>
+              <td><%= f.number_field "schedule[schedule_#{i}][priority]", step: '1', 
+              class: 'uk-input uk-form-width-xsmall', value: schedule.priority %></td>
+              <td><%= f.text_field "schedule[schedule_#{i}][body]", class: 'uk-input uk-form-width-medium', 
+              placeholder: '内容を入力してください', value: schedule.body %></td>
+              <td><%= f.number_field "schedule[schedule_#{i}][predicted_time]", step: '0.5', 
+              class: 'uk-input uk-form-width-xsmall', placeholder: '半角数字を入力してください', value: schedule.predicted_time %>分</td>
+              <td><div class='schedule_remove_btn'><i class='fas fa-times'></i></div></td>
+            </tr>
+            <% i+=1 %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= f.submit '更新する', class: 'uk-button uk-button-primary' %>
+      <div class="btn_container">
+        <div class='schedule_add_btn'><i class="fas fa-plus"></i></div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<h2>今日の振り返り</h2>
+<table class="uk-table uk-table-small uk-table-divider" id='review_table'>
+  <thead>
+    <tr>
+      <th>内容</th>
+      <th>時間（予測）</th>
+      <th>実際かかった時間</th>
+      <th>振り返り</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render 'schedules/review_table_body', schedules:@schedules %> 
+  </tbody>
+</table>

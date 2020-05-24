@@ -1,0 +1,8 @@
+
+<% if schedule.completed %>
+  <%= check_box '完了', schedule.completed, class: 'uk-checkbox', disabled: true, checked: true %>
+<% else %>
+  <a href=<%="#modal-group-#{schedule.id}"%> uk-toggle>
+    <%= check_box '完了', schedule.completed, class: 'uk-checkbox' %>
+  </a>
+<% end %>

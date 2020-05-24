@@ -21,7 +21,9 @@ import './quiz';
 import './tag';
 import './question_select';
 import './chart';
-import './chart_tab'
+import './chart_tab';
+import './add_priority_form';
+import './switch_schedule_table';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,6 +1,23 @@
 <div class="uk-card uk-card-large uk-card-default uk-card-body">
   <% if user_signed_in? %>
-    <h3 class="uk-card-title">ログインしています。</h3>
+    <div class="uk-container">
+      <%= render 'histories/number', today_logs: @today_logs %>
+      <div class="schedule">
+        <%= render 'schedules/schedule_table', schedules: @schedules %>
+      </div>
+      <div class="review">
+        <%= render 'schedules/review_table', schedules: @schedules %>
+      </div>
+
+      <%= link_to  "編集", edit_schedules_path, class: 'uk-button uk-button-primary' %>
+      
+      <% unless @schedules.any? %>
+        <%= link_to  "追加", new_schedule_path, class: 'uk-button uk-button-primary' %>
+      <% end %>
+      <%= link_to  "明日の予定を追加", new_schedule_path(date: @tomorrow), class: 'uk-button uk-button-primary' %>
+      <button class='uk-button uk-button-primary review_btn'>振り返りを見る</button>
+    </div>
+    <%= render 'schedules/modal', schedules: @schedules %>
   <% else %>
     <h3 class="uk-card-title">ようこそ</h3>
     <%= link_to  "ログイン", new_user_session_path, class: 'uk-button uk-button-primary' %>

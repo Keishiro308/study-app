@@ -1,0 +1,8 @@
+<tr id=<%="tr-#{schedule.id}"%>>
+  <td><%= schedule.priority %></td>
+  <td><%= schedule.body %></td>
+  <td><%= schedule.predicted_time %>分</td>
+  <td class='checkbox'>
+    <%= render 'schedules/completed_check', schedule: schedule %>
+  </td>
+</tr>

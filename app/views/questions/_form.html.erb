@@ -1,7 +1,7 @@
 <%= form_with model: question, url: url, local: true do |f| %>
   <%= render 'shared/error_message', resource: f.object %>
   <div class="field">
-    <%= f.label :tags_name, "タグ" %>
+    <%= f.label :tags_name, "タグ（入力した後にenterまたは改行をクリックまたはタップ）" %>
     <%= f.text_field :tag_names, value: @tag_string, class: 'tag_form uk-margin-bottom' %>
   </div>
   <div class="field">

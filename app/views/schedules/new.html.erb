@@ -1,0 +1,29 @@
+<div class="uk-container">
+  <%= form_with model: @schedule, url: schedules_path, local: true do |f| %>
+    <%= render 'shared/error_message', resource: f.object %>
+    <%= f.date_field :date, value:@date, class: 'uk-select' %>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-small uk-table-divider">
+        <thead>
+          <tr>
+            <th>優先順位</th>
+            <th>内容</th>
+            <th>時間（予測）</th>
+          </tr>
+        </thead>
+        <tbody class='addable_form_tbody'>
+          <tr>
+            <td><%= f.number_field 'schedule[schedule_1][priority]', step: '1', class: 'uk-input uk-form-width-xsmall' %></td>
+            <td><%= f.text_field 'schedule[schedule_1][body]', class: 'uk-input uk-form-width-medium', placeholder: '内容を入力してください' %></td>
+            <td><%= f.number_field 'schedule[schedule_1][predicted_time]', step: '0.1',
+             class: 'uk-input uk-form-width-xsmall', placeholder: '半角数字を入力してください' %>分</td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.submit '予定を作成する' ,class: 'uk-button uk-button-primary' %>
+      <div class="btn_container">
+        <div class='schedule_add_btn'><i class="fas fa-plus"></i></div>
+      </div>
+    </div>
+  <% end %>
+</div>

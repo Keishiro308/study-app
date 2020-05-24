@@ -1,0 +1,21 @@
+<div class="uk-container">
+  <div class="schedule">
+    <%= render 'schedules/schedule_table', schedules: @schedules %>
+  </div>
+  <div class="review">
+    <%= render 'schedules/review_table', schedules: @schedules %>
+  </div>
+
+  <%= link_to  "編集", edit_schedules_path, class: 'uk-button uk-button-primary' %>
+  
+  <% unless @schedules.any? %>
+    <%= link_to  "追加", new_schedule_path, class: 'uk-button uk-button-primary' %>
+  <% end %>
+  <% unless @tomorrow_schedules.any? %>
+    <%= link_to  "明日の予定を追加", new_schedule_path(date: @tomorrow), class: 'uk-button uk-button-primary' %>
+  <% end %>
+  <button class='uk-button uk-button-primary review_btn'>振り返りを見る</button>
+
+</div>
+<%= render 'modal', schedules: @schedules %>
+

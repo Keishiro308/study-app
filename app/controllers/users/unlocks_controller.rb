@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Users::UnlocksController < Devise::UnlocksController
+  before_action -> {
+    set_class(:other)
+  }
   # GET /resource/unlock/new
   # def new
   #   super

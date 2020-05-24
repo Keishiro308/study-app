@@ -1,4 +1,8 @@
 class HistoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action -> {
+    set_class(:history)
+  }
   def index
     #グラフ用の変数
     today = DateTime.current
@@ -18,4 +22,5 @@ class HistoriesController < ApplicationController
     #ビュー用変数
     @today_logs = current_user.study_logs.where(created_at: today.beginning_of_day..today)
   end
+
 end

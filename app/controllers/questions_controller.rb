@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :correct_user?, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action -> {
+    set_class(:question)
+  }
 
   def index
     @questions = current_user.questions.includes(:tags).order(created_at: :desc)

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  before_action -> {
+    set_class(:other)
+  }
   # GET /resource/confirmation/new
   # def new
   #   super

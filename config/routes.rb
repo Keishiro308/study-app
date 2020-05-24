@@ -18,5 +18,12 @@ Rails.application.routes.draw do
   resources :study_logs, only: [:create]
   root to: 'home#top'
   resources :histories, only: [:index]
+  get 'schedules/edit' => 'schedules#edit', as: :edit_schedules
+  patch 'schedules/update' => 'schedules#update', as: :schedule
+  resources :schedules, except: [:edit, :update] do
+    member do
+      patch '/completed' => 'schedules#completed'
+    end 
+  end
 end
 

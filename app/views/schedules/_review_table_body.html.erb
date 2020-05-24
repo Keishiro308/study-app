@@ -1,0 +1,9 @@
+<% schedules.each do |schedule| %>
+  <tr class=<%= "review-#{schedule.id}" %>>
+    <td><%= schedule.body %></td>
+    <td><%= schedule.predicted_time %>分</td>
+    <td class='actual_time'><%= schedule.actual_time %>分</td>
+    <td class='review_body'><%= schedule.review %></td>
+  </tr>
+<% end %>
+

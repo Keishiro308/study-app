@@ -3,8 +3,8 @@
     <%= link_to  "Studier", root_path, class: 'uk-navbar-item uk-logo uk-text-bold' %>
     <ul class="uk-navbar-nav uk-visible@m">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to  "Study", '#', class: 'uk-visible-toggle' %>
+        <li class=<%=@active_hash[:question]%>>
+          <%= link_to  "Study", '#', class: "uk-visible-toggle" %>
           <div class="uk-navbar-dropdown uk-invisible-hover" uk-dropdown>
             <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li cless='uk-active'><%= link_to  "問題を解く", select_questions_path %></li>
@@ -14,11 +14,12 @@
           </div>
         </li>
         <li><%= link_to  "Logout", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to  "Schedule", '/' %></li>
-        <li><%= link_to  "History", histories_path %></li>
+        <li class=<%=@active_hash[:schedule]%>><%= link_to  "Schedule", schedules_path %></li>
+        <li class=<%=@active_hash[:history]%>><%= link_to  "History", histories_path %></li>
       <% else %>
+        <li class=<%=@active_hash[:home]%>><%= link_to  "Home", root_path %></li>
         <li><%= link_to  "Login", new_user_session_path %></li>
-        <li><%= link_to  "Signup", new_user_registration_path %></li>
+        <li><%= link_to  "Sign Up", new_user_registration_path %></li>
       <% end %>
       
         
@@ -34,8 +35,8 @@
       <button class="uk-offcanvas-close" type="button" uk-close></button>
       <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
         <% if user_signed_in? %>
-          <li class="uk-active"><%= link_to  "Home", root_path %></li>
-          <li class="uk-parent">
+          <li class=<%=@active_hash[:home]%>><%= link_to  "Home", root_path %></li>
+          <li class=<%= @active_hash[:question] %> >
               <%= link_to  "Study", questions_path %>
               <ul class="uk-nav-sub">
                   <li><%= link_to  "問題を解く", select_questions_path %></li>
@@ -43,11 +44,12 @@
                   <li><%= link_to  "問題一覧", questions_path %></li>
               </ul>
           </li>
-          <li><%= link_to  "History", histories_path %></li>
+          <li class=<%=@active_hash[:history]%>><%= link_to  "History", histories_path %></li>
+          <li class=<%=@active_hash[:schedule]%>><%= link_to  "Schedule", schedules_path %></li>
           <li><%= link_to  "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to  "Login", new_user_session_path %></li>
-          <li><%= link_to  "Signup", new_user_registration_path %></li>
+          <li><%= link_to  "Sign Up", new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>
