@@ -1,0 +1,10 @@
+<% if question.answer_images.any? %>
+  <% question.answer_images.each_with_index do |image, index| %>
+    <div id=<%="modal-media-answer-#{question.id}-#{index}"%> class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <%= image_tag image %>
+      </div>
+    </div>
+  <% end %> 
+<% end %>

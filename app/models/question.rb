@@ -1,10 +1,12 @@
 class Question < ApplicationRecord
+  has_many_attached :question_images
+  has_many_attached :answer_images
   has_many :question_and_tags, dependent: :destroy
   has_many :tags, through: :question_and_tags
   has_many :study_logs, dependent: :destroy
   belongs_to :user
 
-  validates :question, :answer, :user_id, :use, presence: true
+  validates :user_id, :use, presence: true
   
   
 

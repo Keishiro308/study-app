@@ -5,12 +5,20 @@
     <%= f.text_field :tag_names, value: @tag_string, class: 'tag_form uk-margin-bottom' %>
   </div>
   <div class="field">
-    <%= f.label :question, "問題文" %>
-    <%= f.text_area :question, place_holder: '問題文を入力してください', class: 'uk-textarea uk-margin-bottom' %>
+    <%= f.label :question, "問題文（画像は一度に複数選択できます）" %>
+    <%= f.text_area :question, place_holder: '問題文を入力してください', class: 'uk-textarea' %>
+    <div uk-form-custom class='uk-margin-bottom'>
+      <%= f.file_field :question_images, multiple: true %>
+      <button class="uk-button uk-button-default" type="button" tabindex="-1">画像を選択する</button>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :answer, "答え" %>
-    <%= f.text_area :answer, place_holder: '答えを入力してください', class: 'uk-textarea uk-margin-bottom' %>
+    <%= f.label :answer, "答え（画像は一度に複数選択できます）" %>
+    <%= f.text_area :answer, place_holder: '答えを入力してください', class: 'uk-textarea' %>
+    <div uk-form-custom  class='uk-margin-bottom'>
+      <%= f.file_field :answer_images, multiple: true %>
+      <button class="uk-button uk-button-default" type="button" tabindex="-1">画像を選択する</button>
+    </div>
   </div>
   <%= f.hidden_field :use, value: true %>
   <%= f.submit btn_text, class: 'uk-button uk-button-primary uk-margin-top' %>

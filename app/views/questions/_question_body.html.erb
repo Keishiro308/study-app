@@ -1,0 +1,12 @@
+<h3 class="uk-card-title">問題文</h3>
+<small>画像はクリックまたはタップすると拡大されます。</small>
+<p><%= question.question %></p>
+
+<% if question.question_images.any? %>
+  <% question.question_images.each_with_index do |image, index| %>
+    <a class="uk-button uk-button-default" href=<%="#modal-media-question-#{question.id}-#{index}"%> uk-toggle>
+      <%= image_tag image %>
+    </a>
+    
+  <% end %>
+<% end %>
