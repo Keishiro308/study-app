@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  require 'mini_magick'
+
   before_action :correct_user?, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   before_action -> {
@@ -18,6 +20,14 @@ class QuestionsController < ApplicationController
     tag_list = question_params[:tag_names].split(',')
     params[:question].delete(:tag_names)
     params[:question][:user_id] = current_user.id
+    params[:question][:question_images].each do |image|
+      mini_image = MiniMagick::Image.new(image.tempfile.path)
+      mini_image.resize '700x500>'
+    end
+    params[:question][:answer_images].each do |answer_image|
+      answer_image = MiniMagick::Image.new(answer_image.tempfile.path)
+      answer_image.resize '700x500>'
+    end
     @question = Question.new(question_params)
     if @question.save
       @question.save_tags(tag_list)
