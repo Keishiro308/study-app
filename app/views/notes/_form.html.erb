@@ -1,0 +1,16 @@
+<%= form_with model: note,  url: url, class: 'uk-form-stacked', local: true do |f| %>
+  <%= render 'shared/error_message', resource: f.object %>
+  <div class='field'>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, class: 'uk-input uk-margin-bottom' %>
+  </div>
+  <div class="field">
+    <%= f.label :tags_name, "タグ（入力した後にenterまたは改行をクリックまたはタップ）" %>
+    <%= f.text_field :tag_names, value: @tag_string, class: 'tag_form uk-margin-bottom' %>
+  </div>
+  <div class='field'>
+    <%= f.label :body, "本文" %>
+    <%= f.text_area :body, id: 'summernote' %>
+  </div>
+  <%= f.submit text, class: 'uk-button uk-button-primary uk-margin' %>
+<% end %>

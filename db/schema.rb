@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_105626) do
+ActiveRecord::Schema.define(version: 2020_05_29_030005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,29 @@ ActiveRecord::Schema.define(version: 2020_05_24_105626) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "note_and_tags", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_and_tags_on_note_id"
+    t.index ["tag_id"], name: "index_note_and_tags_on_tag_id"
+  end
+
+  create_table "note_images", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "question_and_tags", force: :cascade do |t|
@@ -97,6 +120,9 @@ ActiveRecord::Schema.define(version: 2020_05_24_105626) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "note_and_tags", "notes"
+  add_foreign_key "note_and_tags", "tags"
+  add_foreign_key "notes", "users"
   add_foreign_key "question_and_tags", "questions"
   add_foreign_key "question_and_tags", "tags"
   add_foreign_key "questions", "users"

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
       history: '',
       question: '',
       schedule: '',
+      note: '',
       other: ''
     }
     @active_hash[key] = 'uk-active'

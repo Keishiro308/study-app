@@ -4,12 +4,21 @@
     <ul class="uk-navbar-nav uk-visible@m">
       <% if user_signed_in? %>
         <li class=<%=@active_hash[:question]%>>
-          <%= link_to  "Study", '#', class: "uk-visible-toggle" %>
+          <%= link_to  "Question", '#', class: "uk-visible-toggle" %>
           <div class="uk-navbar-dropdown uk-invisible-hover" uk-dropdown>
             <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li cless='uk-active'><%= link_to  "問題を解く", select_questions_path %></li>
+                <li><%= link_to  "問題を解く", select_questions_path %></li>
                 <li><%= link_to  "問題を登録する", new_question_path %></li>
                 <li><%= link_to  "問題一覧", questions_path %></li>
+            </ul>
+          </div>
+        </li>
+        <li class=<%=@active_hash[:note]%>>
+          <%= link_to  "Note", '#', class: "uk-visible-toggle" %>
+          <div class="uk-navbar-dropdown uk-invisible-hover" uk-dropdown>
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li><%= link_to  "ノートの登録", new_note_path %></li>
+                <li><%= link_to  "ノート一覧", notes_path %></li>
             </ul>
           </div>
         </li>
@@ -37,11 +46,18 @@
         <% if user_signed_in? %>
           <li class=<%=@active_hash[:home]%>><%= link_to  "Home", root_path %></li>
           <li class=<%= @active_hash[:question] %> >
-              <%= link_to  "Study", questions_path %>
+              <%= link_to  "Question", questions_path %>
               <ul class="uk-nav-sub">
                   <li><%= link_to  "問題を解く", select_questions_path %></li>
                   <li><%= link_to  "問題を登録する", new_question_path %></li>
                   <li><%= link_to  "問題一覧", questions_path %></li>
+              </ul>
+          </li>
+          <li class=<%= @active_hash[:note] %> >
+              <%= link_to  "Note", notes_path %>
+              <ul class="uk-nav-sub">
+                  <li><%= link_to  "ノートを登録する", new_note_path %></li>
+                  <li><%= link_to  "ノート一覧", notes_path %></li>
               </ul>
           </li>
           <li class=<%=@active_hash[:history]%>><%= link_to  "History", histories_path %></li>

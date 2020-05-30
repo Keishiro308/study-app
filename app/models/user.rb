@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :schedules, dependent: :destroy
   has_many :tags, through: :questions
   has_many :study_logs, through: :questions
+  has_many :notes, dependent: :destroy
   
 end

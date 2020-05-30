@@ -25,5 +25,7 @@ Rails.application.routes.draw do
       patch '/completed' => 'schedules#completed'
     end 
   end
+  resources :notes
+  resources :note_images, only: [:create, :destroy]
 end
 

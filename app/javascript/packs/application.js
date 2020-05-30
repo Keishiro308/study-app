@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
+require('jquery/dist/jquery.min')
 require('uikit/dist/js/uikit-core.min')
 require('uikit/dist/js/uikit-icons.min')
 require('uikit/dist/js/uikit.min')
@@ -15,7 +16,10 @@ require('@fortawesome/fontawesome-free/js/all')
 require('@fortawesome/fontawesome-free/css/all.min.css')
 require('chart.js/dist/Chart.min')
 require('chart.js/dist/Chart.bundle.min')
+require('bootstrap/dist/js/bootstrap.min')
+require('bootstrap/dist/css/bootstrap.min.css')
 import 'uikit/dist/js/uikit.min';
+
 
 import './quiz';
 import './tag';
@@ -25,6 +29,7 @@ import './chart_tab';
 import './add_priority_form';
 import './switch_schedule_table';
 import './question_image_file';
+import './summernote';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,0 +1,22 @@
+<div class="uk-card uk-card-default uk-width-1-2@m uk-margin-bottom">
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom"><%= link_to note.title, note_path(note) %></h3>
+                <p class="uk-text-meta uk-margin-remove">作成：<%= simple_time note.created_at %></p>
+                <p class="uk-text-meta uk-margin-remove">最終更新：<%= simple_time note.updated_at %></p>
+                <p>
+                  <% note.tags.each do |tag| %>
+                    <span class="uk-badge uk-padding-small"><i class="fas fa-tag"></i><%= tag.name %></span>
+                  <% end %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body note_body">
+        <%= sanitize note.body, tags: @tags_white_list, attributes: %w(href title src) %>
+    </div>
+    <div class="uk-card-footer">
+        <%= link_to  "さらに表示", note_path(note) %>
+    </div>
+</div>
