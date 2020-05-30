@@ -18,6 +18,9 @@ require('chart.js/dist/Chart.min')
 require('chart.js/dist/Chart.bundle.min')
 require('bootstrap/dist/js/bootstrap.min')
 require('bootstrap/dist/css/bootstrap.min.css')
+require('summernote/dist/summernote-bs4.min.css')
+require('chart.js/dist/Chart.min.css')
+require('@yaireo/tagify/src/tagify.scss')
 import 'uikit/dist/js/uikit.min';
 
 
@@ -30,6 +33,7 @@ import './add_priority_form';
 import './switch_schedule_table';
 import './question_image_file';
 import './summernote';
+import '../stylesheet/application.scss';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
