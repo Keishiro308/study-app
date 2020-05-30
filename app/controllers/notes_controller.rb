@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   }
   before_action :correct_user?, only: [:show, :edit, :update, :destroy]
   before_action :set_tag_white_list, only: [:index, :show]
+  before_action :set_attribute_list, only: [:index, :show]
 
   def index
     @notes = current_user.notes.includes(:tags).order(created_at: :desc).page(params[:page]).per(20)
@@ -78,6 +79,10 @@ class NotesController < ApplicationController
   end
 
   def set_tag_white_list
-    @tags_white_list = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote br cite sub sup ins p img iframe span)
+    @tags_white_list = %w(a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote br cite sub sup ins p img iframe span font)
+  end
+
+  def set_attribute_list
+    @attributes = %w(href title src style color)
   end
 end

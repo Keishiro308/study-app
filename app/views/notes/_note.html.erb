@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="uk-card-body note_body">
-        <%= sanitize note.body, tags: @tags_white_list, attributes: %w(href title src style) %>
+        <%= sanitize note.body, tags: @tags_white_list, attributes: @attributes  %>
     </div>
     <div class="uk-card-footer">
         <%= link_to  "さらに表示", note_path(note) %>
