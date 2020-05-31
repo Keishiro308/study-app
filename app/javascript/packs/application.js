@@ -24,13 +24,9 @@ require('chart.js/dist/Chart.min.css')
 
 require('bootstrap/dist/js/bootstrap.min')
 require('bootstrap/dist/css/bootstrap.min.css')
-<<<<<<< HEAD
 require('summernote/dist/summernote-bs4.min.css')
 require('chart.js/dist/Chart.min.css')
 require('@yaireo/tagify/src/tagify.scss')
-=======
-
->>>>>>> summernote
 import 'uikit/dist/js/uikit.min';
 
 
