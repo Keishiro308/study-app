@@ -8,7 +8,8 @@ class QuestionsController < ApplicationController
   }
 
   def index
-    @questions = current_user.questions.with_attached_question_images.with_attached_answer_images.includes(:tags).order(created_at: :desc).page(params[:page]).per(20)
+    @questions = current_user.questions.with_attached_question_images
+    .with_attached_answer_images.includes(:tags).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def new
