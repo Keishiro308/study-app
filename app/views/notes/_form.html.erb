@@ -12,5 +12,6 @@
     <%= f.label :body, "本文" %>
     <%= f.text_area :body, id: 'summernote' %>
   </div>
+  <%= f.hidden_field :note_image_ids, class: 'note_image_ids' %>
   <%= f.submit text, class: 'uk-button uk-button-primary uk-margin' %>
 <% end %>

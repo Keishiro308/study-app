@@ -9,18 +9,28 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require('jquery/dist/jquery.min')
+
 require('uikit/dist/js/uikit-core.min')
 require('uikit/dist/js/uikit-icons.min')
 require('uikit/dist/js/uikit.min')
+require('uikit/dist/css/uikit.min.css')
+
 require('@fortawesome/fontawesome-free/js/all')
 require('@fortawesome/fontawesome-free/css/all.min.css')
+
 require('chart.js/dist/Chart.min')
 require('chart.js/dist/Chart.bundle.min')
+require('chart.js/dist/Chart.min.css')
+
 require('bootstrap/dist/js/bootstrap.min')
 require('bootstrap/dist/css/bootstrap.min.css')
+<<<<<<< HEAD
 require('summernote/dist/summernote-bs4.min.css')
 require('chart.js/dist/Chart.min.css')
 require('@yaireo/tagify/src/tagify.scss')
+=======
+
+>>>>>>> summernote
 import 'uikit/dist/js/uikit.min';
 
 

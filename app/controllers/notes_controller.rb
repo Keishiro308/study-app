@@ -8,7 +8,7 @@ class NotesController < ApplicationController
   before_action :set_attribute_list, only: [:index, :show]
 
   def index
-    @notes = current_user.notes.includes(:tags).order(created_at: :desc).page(params[:page]).per(20)
+    @notes = current_user.notes.includes(:tags, { note_images: :image_attachment }).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show
@@ -22,11 +22,17 @@ class NotesController < ApplicationController
 
   def create
     tag_list = note_params[:tag_names].split(',')
+    note_image_ids = note_params[:note_image_ids].split(',')
     params[:note].delete(:tag_names)
+    params[:note].delete(:note_image_ids)
     params[:note][:user_id] = current_user.id
     @note = Note.new(note_params)
     if @note.save
       @note.save_tags(tag_list)
+      note_image_ids.each do |id|
+        note_image = NoteImage.find(id)
+        note_image.update!(note_id: @note.id)
+      end
       flash.notice = 'ノートを作成しました'
       redirect_to notes_path
     else
@@ -67,7 +73,7 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:title, :body, :tag_names, :user_id)
+    params.require(:note).permit(:title, :body, :tag_names, :user_id, :note_image_ids)
   end
 
   def correct_user?
