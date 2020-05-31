@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_030005) do
+ActiveRecord::Schema.define(version: 2020_05_31_024555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_29_030005) do
   create_table "note_images", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "note_id"
+    t.index ["note_id"], name: "index_note_images_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -122,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_030005) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "note_and_tags", "notes"
   add_foreign_key "note_and_tags", "tags"
+  add_foreign_key "note_images", "notes"
   add_foreign_key "notes", "users"
   add_foreign_key "question_and_tags", "questions"
   add_foreign_key "question_and_tags", "tags"

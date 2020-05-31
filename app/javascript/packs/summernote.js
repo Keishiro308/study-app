@@ -4,6 +4,7 @@ require('summernote/dist/lang/summernote-ja-JP')
 
 const sendFile = (file, toSummernote) => {
   const data = new FormData
+  let note_image_ids = $('.note_image_ids').val();
   data.append('note_image[image]', file)
   $.ajax({
     data: data,
@@ -13,6 +14,11 @@ const sendFile = (file, toSummernote) => {
     contentType: false,
     processData: false,
     success: (data) => {
+      if (!note_image_ids) {
+        $('.note_image_ids').val(`${data.id}`)
+      } else {
+        $('.note_image_ids').val(`${note_image_ids},${data.id}`)
+      }
       img = document.createElement('IMG')
       img.src = data.url
       console.log(data)
